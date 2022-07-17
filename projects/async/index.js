@@ -93,7 +93,6 @@ async function tryToLoad() {
     loadingFailedBlock.classList.add('hidden');
     filterBlock.classList.remove('hidden');
   } catch (e) {
-    towns = await loadTowns();
     loadingBlock.classList.add('hidden');
     loadingFailedBlock.classList.remove('hidden');
   }
@@ -106,7 +105,7 @@ function updateFilter(filterValue) {
     if (filterValue && isMatching(town.name, filterValue)) {
       const townDiv = document.createElement('div');
       townDiv.textContent = town.name;
-      fragment.appendChild(townDiv);
+      fragment.append(townDiv);
     }
   }
   filterResult.append(fragment);
